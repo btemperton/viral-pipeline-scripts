@@ -7,9 +7,11 @@ This is a repository for scripts to make the viral identification and annotation
 
 This simple script just splits the `fasta` file into numerous subsamples and then runs the jobs in parallel. It then combines the output of each subprocess (`annotations.tsv`) into a single dataframe and outputs that so you can continue the pipeline.
 
+It requires `python3`, `pandas` and `shutil`
+
 You can run it as follows:
 ```
-dram-v-wrapper.py \
+python dram-v-wrapper.py \
 --in_fasta_file test10.fa \
 --in_tab_file viral-affi-contigs-for-dramv.tab \
 --outfile test.tsv \
