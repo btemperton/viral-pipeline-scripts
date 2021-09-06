@@ -9,7 +9,15 @@ This simple script just splits the `fasta` file into numerous subsamples and the
 
 You can run it as follows:
 ```
-dram-v-wrapper.py --in_fasta_file test10.fa --in_tab_file viral-affi-contigs-for-dramv.tab --outfile test.tsv --job_number 32
+dram-v-wrapper.py \
+--in_fasta_file test10.fa \
+--in_tab_file viral-affi-contigs-for-dramv.tab \
+--outfile test.tsv \
+--job_number 10
 ```
 
-This will launch up to `32` jobs in parallel (each assigned 4 threads, so scale accordingly and use `htop` to monitor your CPU usage). The output of each subprocess will be combined into `test.tsv`
+This will launch up to `10` jobs in parallel (each assigned 4 threads by default but can be set with the `--threads_per_process` parameter, so scale accordingly and use `htop` to monitor your CPU usage). The output of each subprocess will be combined into `test.tsv`.
+
+As a test, running 10 putative viral sequences as a single process took XXX on a 64 core ubuntu machine with 128Gb of RAM
+
+This script is rough and ready (basically because I needed it to work ASAP for some data I'm analysing), so feel free to adapt and use pull requests to improve it!
